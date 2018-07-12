@@ -4,7 +4,8 @@ import java.security.PrivateKey;
 
 public class Contacts {
 
-    private String username,email,id,password;
+    //private int id;
+    private String username,email,password;
 
     public String getUsername() {
         return username;
@@ -22,13 +23,13 @@ public class Contacts {
         this.email = email;
     }
 
-    public String getId() {
+    /*public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public String getPassword() {
         return password;

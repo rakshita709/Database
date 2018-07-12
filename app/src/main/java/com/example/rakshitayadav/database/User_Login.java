@@ -11,7 +11,7 @@ public class User_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_user);
 
-        String id = getIntent().getStringExtra("ID");
+        String id = getIntent().getStringExtra("UNAME");
         TextView Id = findViewById(R.id.id_show);
         Id.setText(id);
 

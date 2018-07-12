@@ -44,13 +44,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String query = "SELECT * FROM contacts";
         Cursor cursor = db.rawQuery(query,null);
         //to get count of the contacts number
+
         int count = cursor.getCount();
 
         values.put(COLUMN_ID,count);
 
-        values.put("COLUMN_UNAME",c.getUsername());
-        values.put("COLUMN_EMAIL",c.getEmail());
-        values.put("COLUMN_PASS",c.getPassword());
+        values.put(COLUMN_UNAME,c.getUsername());
+        values.put(COLUMN_EMAIL,c.getEmail());
+        values.put(COLUMN_PASS,c.getPassword());
 
         db.insert(TABLE_NAME,null,values);
         db.close();
@@ -60,16 +61,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public String searchPass(String uname)
     {
         db = this.getReadableDatabase();
-        String query = "SELECT uname,password FROM contacts";
+        String query = "SELECT uname,pass FROM contacts";
         Cursor cursor = db.rawQuery(query,null);
-        String user_id,pass = "Not found!";
+        String username,pass = "Not found!";
         if(cursor.moveToFirst())
         {
             do
             {
-               user_id = cursor.getString(0);
+                username= cursor.getString(0);
 
-               if(user_id.equals(uname))
+               if(username.equals(uname))
                {
                    pass = cursor.getString(1); //if the if-condition is true then we need to store this password
                    break; //now we don't need to check other details :)
@@ -84,7 +85,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        String query = "DROP TABLE IF EXISTS " + TABLE_NAME;
+        db.execSQL(query);
+        this.onCreate(db);
     }
 
 

@@ -21,22 +21,22 @@ public class MainActivity extends AppCompatActivity {
     {
         if(view.getId() == R.id.Blogin)
         {
-            String id = ((EditText)findViewById(R.id.TVid)).getText().toString();
+            String uname = ((EditText)findViewById(R.id.TVusername)).getText().toString();
             String pass = ((EditText)findViewById(R.id.TVpass)).getText().toString();
 
-           String pass_check =  helper.searchPass(id);
+           String pass_check =  helper.searchPass(uname);
 
            if(pass.equals(pass_check))
            {
                Intent intent = new Intent();
                intent.setClass(MainActivity.this,User_Login.class);
-               intent.putExtra("ID",id);
+               intent.putExtra("UNAME",uname);
                intent.putExtra("Password",pass);
                startActivity(intent);
            }
            else
            {
-               Toast.makeText(MainActivity.this,"ID AND PASSWORDS DON'T MATCH!",Toast.LENGTH_LONG).show();
+               Toast.makeText(MainActivity.this,"ID AND PASSWORD DON'T MATCH!",Toast.LENGTH_LONG).show();
            }
         }
 

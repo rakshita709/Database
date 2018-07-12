@@ -25,7 +25,9 @@ public class User_Sign_Up extends AppCompatActivity {
         {
             String username = ((EditText)findViewById(R.id.user_name)).getText().toString();
             String email = ((EditText)findViewById(R.id.user_email)).getText().toString();
+/*
             String id = ((EditText)findViewById(R.id.user_id)).getText().toString();
+*/
             String pass1 = ((EditText)findViewById(R.id.user_pass1)).getText().toString();
             String pass2 = ((EditText)findViewById(R.id.user_pass2)).getText().toString();
 
@@ -35,10 +37,13 @@ public class User_Sign_Up extends AppCompatActivity {
             }
             else
             {
+                //insert details in database!
                 Contacts c = new Contacts();
                 c.setUsername(username);
                 c.setEmail(email);
+/*
                 c.setId(id);
+*/
                 c.setPassword(pass1);
 
                 helper.insertContact(c);
