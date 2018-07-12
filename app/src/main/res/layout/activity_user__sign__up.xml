@@ -25,15 +25,12 @@
 
     <EditText
         android:id="@+id/user_email"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter email"
         />
-
     <EditText
         android:id="@+id/user_pass1"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter password"

@@ -31,6 +31,7 @@ public class Contacts {
         this.id = id;
     }
 
+
     public String getPassword() {
         return password;
     }

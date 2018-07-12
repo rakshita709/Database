@@ -16,6 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "pass";
     SQLiteDatabase db;
+
     private static final String TABLE_CREATE = "create table "+TABLE_NAME+" (" +
                                                 COLUMN_ID+" integer primary key not null," +
                                                 COLUMN_UNAME+" text not null," +
@@ -35,10 +36,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+
     public long insertContact(Contacts c)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        String query = "SELECT * FROM contacts";
+        Cursor cursor = db.rawQuery(query,null);
 
         values.put(COLUMN_UNAME,c.getUsername());
         values.put(COLUMN_EMAIL,c.getEmail());
@@ -48,7 +53,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.close();
 
         return id;
-
     }
 
     public String searchPass(String uname)

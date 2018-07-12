@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra("Password",pass);
                startActivity(intent);
                finish();
+
            }
            else
            {
