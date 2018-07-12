@@ -16,7 +16,6 @@ public class User_Sign_Up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__sign__up);
 
-
     }
 
     public void CreateUser(View view)
